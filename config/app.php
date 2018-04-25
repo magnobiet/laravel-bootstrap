@@ -165,7 +165,6 @@ return [
          */
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
 
-
     ],
 
     /*
