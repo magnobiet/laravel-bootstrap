@@ -165,6 +165,7 @@ return [
          */
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
+        OwenIt\Auditing\AuditingServiceProvider::class,
 
     ],
 
