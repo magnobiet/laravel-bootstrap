@@ -164,6 +164,7 @@ return [
          * Third-party...
          */
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
 
     ],
 
