@@ -1,0 +1,9 @@
+@import "_mixins";
+
+$values: (5, 10, 15, 20, 25, 30);
+
+@include make-helper("margin", "m", $values, "px");
+@include make-helper("margin-top", "m-t", $values, "px");
+@include make-helper("margin-right", "m-r", $values, "px");
+@include make-helper("margin-bottom", "m-b", $values, "px");
+@include make-helper("margin-left", "m-l", $values, "px");

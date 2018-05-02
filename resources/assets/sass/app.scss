@@ -5,6 +5,8 @@
 
 @import "~icheck/skins/square/blue.css";
 
+@import "_helpers";
+
 .login-page,
 .register-page {
 	.auth-links {
@@ -14,4 +16,25 @@
 
 .logout-form {
 	display: none;
+}
+
+.destroy-form {
+	display: inline;
+}
+
+.table {
+	thead {
+		.id {
+			width: 90px;
+		}
+		.actions {
+			width: 190px;
+		}
+	}
+}
+
+.box {
+	&.box-purple{
+		border-top-color: #605ca8;
+	}
 }
