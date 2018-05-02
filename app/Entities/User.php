@@ -2,15 +2,17 @@
 
 namespace App\Entities;
 
-use Laravel\Passport\HasApiTokens;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 use OwenIt\Auditing\Auditable;
+use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class User extends Authenticatable implements AuditableContract
+class User extends Authenticatable implements AuditableContract, Transformable
 {
-    use HasApiTokens, Notifiable, Auditable;
+    use HasApiTokens, Notifiable, Auditable, TransformableTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -18,7 +20,9 @@ class User extends Authenticatable implements AuditableContract
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
     ];
 
     /**
@@ -27,6 +31,7 @@ class User extends Authenticatable implements AuditableContract
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 }

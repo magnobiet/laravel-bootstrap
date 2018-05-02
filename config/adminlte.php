@@ -111,7 +111,7 @@ return [
         [
             'text' => 'Dashboard',
             'url'  => '/home',
-            'icon' => 'tachometer'
+            'icon' => 'tachometer',
         ],
         'MAIN NAVIGATION',
         [
@@ -163,6 +163,12 @@ return [
         [
             'text'       => 'Information',
             'icon_color' => 'aqua',
+        ],
+        'SYSTEM',
+        [
+            'text' => 'Users',
+            'icon' => 'users',
+            'url'  => 'users',
         ],
     ],
 

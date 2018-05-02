@@ -12,6 +12,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-		factory(App\Entities\User::class, 1000)->create();
+        factory(App\Entities\User::class, 100)->create();
     }
+
 }
