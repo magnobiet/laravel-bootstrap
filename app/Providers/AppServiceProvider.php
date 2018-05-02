@@ -25,7 +25,13 @@ class AppServiceProvider extends ServiceProvider
     {
 
         if ($this->app->environment('staging') || $this->app->environment('production')) {
+
             $this->app->register(\Rollbar\Laravel\RollbarServiceProvider::class);
+
+        } else {
+
+            $this->app->register(\KKomelin\TranslatableStringExporter\Providers\ExporterServiceProvider::class);
+
         }
 
     }

@@ -9,6 +9,7 @@
     "arcanedev/log-viewer": "^4.5",
     "fideloper/proxy": "^4.0",
     "jeroennoten/laravel-adminlte": "^1.23",
+    "kkomelin/laravel-translatable-string-exporter": "^0.4.0",
     "laravel/framework": "5.6.*",
     "laravel/passport": "^6.0",
     "laravel/tinker": "^1.0",
@@ -43,7 +44,8 @@
   "extra": {
     "laravel": {
       "dont-discover": [
-        "rollbar/rollbar-laravel"
+        "rollbar/rollbar-laravel",
+        "kkomelin/laravel-translatable-string-exporter"
       ]
     }
   },
