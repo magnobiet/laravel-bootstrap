@@ -1,14 +1,17 @@
+@import "~bootstrap/dist/css/bootstrap.css";
 
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import "~admin-lte/dist/css/AdminLTE.css";
+@import "~admin-lte/dist/css/skins/_all-skins.css";
 
-// Variables
-@import "variables";
+@import "~icheck/skins/square/blue.css";
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+.login-page,
+.register-page {
+	.auth-links {
+		margin-top: 10px;
+	}
+}
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.logout-form {
+	display: none;
 }

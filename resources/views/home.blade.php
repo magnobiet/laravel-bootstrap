@@ -1,23 +1,45 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('title', 'AdminLTE')
+
+@section('content_header')
+
+	<h1>Dashboard</h1>
+
+	<ol class="breadcrumb">
+		<li>
+			<a href="#">
+				<i class="fa fa-dashboard"></i>
+				Home
+			</a>
+		</li>
+		<li class="active">Dashboard</li>
+	</ol>
+
+@stop
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+	<div class="row">
 
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+		<div class="col-md-12">
+
+			<div class="box box-primary">
+
+				<div class="box-header with-border">
+					<h3 class="box-title">You are logged in!</h3>
+				</div>
+
+				<div class="box-body">
+
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur labore temporibus, fugit minus accusamus, repudiandae assumenda sunt provident sequi quaerat blanditiis similique recusandae rerum repellendus aliquid tempora reiciendis aliquam ab.</p>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+@stop
