@@ -101,6 +101,24 @@ class UsersController extends Controller
             $data = $request->all();
             $data['password'] = bcrypt($data['password']);
 
+            if ($request->hasFile('photo') && $request->file('photo')->isValid()) {
+
+                // TODO: migrate to a service
+                \Cloudder::upload($request->file('photo'), null, [
+                    "width"   => 512,
+                    "height"  => 512,
+                    "format"  => "png",
+                    "gravity" => "face",
+                    "crop"    => "thumb",
+                ], [
+                    "profile_image",
+                ]);
+
+                $photo = \Cloudder::getResult();
+                $data['photo_url'] = $photo['secure_url'];
+
+            }
+
             $user = $this->repository->create($data);
 
             $response = [
@@ -209,6 +227,30 @@ class UsersController extends Controller
                 $data['password'] = bcrypt($data['password']);
             } else {
                 unset($data['password']);
+            }
+
+            if ($request->hasFile('photo') && $request->file('photo')->isValid()) {
+
+                // TODO: migrate to a service
+                \Cloudder::upload($request->file('photo'), null, [
+                    "width"   => 512,
+                    "height"  => 512,
+                    "format"  => "png",
+                    "gravity" => "face",
+                    "crop"    => "thumb",
+                ], [
+                    "profile_image",
+                ]);
+
+                $photo = \Cloudder::getResult();
+                $data['photo_url'] = $photo['secure_url'];
+
+                $oldPhotoUrlFragments = explode('/', $request->old_photo);
+                $photoPublicId = explode('.', end($oldPhotoUrlFragments))[0];
+
+                \Cloudder::destroyImage($photoPublicId);
+                \Cloudder::delete($photoPublicId);
+
             }
 
             $user = $this->repository->update($data, $id);

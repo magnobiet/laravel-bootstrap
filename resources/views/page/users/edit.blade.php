@@ -23,7 +23,7 @@
 
         <div class="col-md-12">
 
-            <form action="{{ route('users.update', [ 'id' => $user->id ]) }}" method="POST" role="form" autocomplete="off" data-validate>
+            <form action="{{ route('users.update', [ 'id' => $user->id ]) }}" method="POST" role="form" enctype="multipart/form-data" autocomplete="off" data-validate>
 
                 <input type="hidden" name="_method" value="PUT">
                 <input type="hidden" id="id" name="id" class="form-control" value="{{ $user->id }}">
@@ -50,6 +50,16 @@
                                 <label for="password">{{ __('Password') }}</label>
                                 <input type="password" id="password" name="password" minlength="8" class="form-control">
                             </div>
+
+                            <div class="form-group">
+                                <label for="photo">{{ __('Photo') }}</label>
+                                <input type="file" id="photo" name="photo" class="form-control">
+                            </div>
+
+                            @if (isset($user->photo_url) && $user->photo_url)
+                                <input type="hidden" id="old_photo_url" name="old_photo" class="form-control" value="{{ $user->photo_url }}">
+                                <img src="{{ $user->photo_url }}" class="img-thumbnail" width="250" alt="{{ $user->name }}">
+                            @endif
 
                         </fieldset>
 

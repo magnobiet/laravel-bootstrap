@@ -24,6 +24,7 @@ class User extends Authenticatable implements AuditableContract, Transformable
         'name',
         'email',
         'password',
+        'photo_url',
     ];
 
     /**

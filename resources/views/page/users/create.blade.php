@@ -23,7 +23,7 @@
 
         <div class="col-md-12">
 
-            <form action="{{ route('users.store') }}" method="POST" role="form" data-validate>
+            <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data" autocomplete="off" role="form" data-validate>
 
                 <input type="hidden" name="_method" value="POST">
 
@@ -48,6 +48,11 @@
                             <div class="form-group">
                                 <label for="password">{{ __('Password') }}</label>
                                 <input type="password" id="password" name="password" minlength="8" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="photo">{{ __('Photo') }}</label>
+                                <input type="file" id="photo" name="photo" class="form-control">
                             </div>
 
                         </fieldset>

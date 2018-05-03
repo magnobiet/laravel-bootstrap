@@ -42,6 +42,16 @@
                         <p class="form-control-static">********************************</p>
                     </div>
 
+                    @if (isset($user->photo_url) && $user->photo_url)
+
+                        <div class="form-group">
+                            <label>{{ __('Photo') }}</label>
+                        </div>
+
+                        <img src="{{ $user->photo_url }}" class="img-thumbnail" width="250" alt="{{ $user->name }}">
+
+                    @endif
+
                 </div>
 
                 <div class="box-footer">
