@@ -2,6 +2,7 @@
 
 namespace App\Entities;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
@@ -12,7 +13,7 @@ use Prettus\Repository\Traits\TransformableTrait;
 
 class User extends Authenticatable implements AuditableContract, Transformable
 {
-    use HasApiTokens, Notifiable, Auditable, TransformableTrait;
+    use HasApiTokens, Notifiable, Auditable, TransformableTrait, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
