@@ -1,14 +1,14 @@
 @extends('adminlte::page')
 
-@section('title', __('Users'))
+@section('title', __('States'))
 
 @section('content_header')
 
-    <h1>{{ __('Users') }}</h1>
+    <h1>{{ __('States') }}</h1>
 
     <ol class="breadcrumb">
         <li><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
-        <li class="active">{{ __('Users') }}</li>
+        <li class="active">{{ __('States') }}</li>
     </ol>
 
 @stop
@@ -40,7 +40,7 @@
 
                 <div class="box-body">
 
-                    <form method="GET" action="{{ route('users.index') }}" role="form">
+                    <form method="GET" action="{{ route('states.index') }}" role="form">
 
                         <fieldset>
 
@@ -83,7 +83,7 @@
                                         @if (!empty($filter))
                                             <div class="btn-group" role="group">
 
-                                                <a href="{{ route('users.index') }}" class="btn btn-default">
+                                                <a href="{{ route('states.index') }}" class="btn btn-default">
                                                     {{ __('Clear filter') }}
                                                 </a>
 
@@ -117,25 +117,6 @@
 
             <div class="box box-purple">
 
-                <div class="box-header with-border">
-
-                    <span class="box-title"></span>
-
-                    <div class="box-tools pull-right">
-
-                        <div class="btn-group" data-toggle="btn-toggle">
-
-                            <a href="{{ route('users.create') }}" class="btn btn-sm bg-purple">
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                                {{ __('Create') }}
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
                 <div class="box-body no-padding">
 
                     <div class="table-responsive">
@@ -146,43 +127,25 @@
                                 <tr>
                                     <th class="id">{{ __('ID') }}</th>
                                     <th>{{ __('Name') }}</th>
-                                    <th>{{ __('Email') }}</th>
+                                    <th>{{ __('Abbreviation')  }}</th>
                                     <th class="actions">{{ __('Actions') }}</th>
                                 </tr>
                             </thead>
 
-                            @if (isset($users) && count($users))
+                            @if (isset($states) && count($states))
                                 <tbody>
 
-                                    @foreach ($users as $key => $value)
+                                    @foreach ($states as $key => $value)
                                         <tr>
                                             <td>{{ $value->id }}</td>
                                             <td>{{ $value->name }}</td>
-                                            <td>{{ $value->email }}</td>
+                                            <td>{{ $value->abbr }}</td>
                                             <td>
 
-                                                <a href="{{ route('users.show', [ 'id' => $value->id ]) }}" class="btn btn-default btn-xs" title="{{ __('Show') }}">
+                                                <a href="{{ route('states.show', [ 'id' => $value->id ]) }}" class="btn btn-default btn-xs" title="{{ __('Show') }}">
                                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                                     {{ __('Show') }}
                                                 </a>
-
-                                                <a href="{{ route('users.edit', [ 'id' => $value->id ]) }}" class="btn btn-primary btn-xs" title="{{ __('Edit') }}">
-                                                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                    {{ __('Edit') }}
-                                                </a>
-
-                                                <form method="POST" action="{{ route('users.destroy', [ 'id' => $value->id ]) }}" class="destroy-form" role="form">
-
-                                                    <input type="hidden" name="_method" value="DELETE">
-
-                                                    {{ csrf_field() }}
-
-                                                    <button type="submit" class="btn btn-danger btn-xs" title="{{ __('Destroy') }}" data-destroy>
-                                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                                        {{ __('Destroy') }}
-                                                    </button>
-
-                                                </form>
 
                                             </td>
                                         </tr>
@@ -191,7 +154,7 @@
                                 </tbody>
                             @endif
 
-                            @if (isset($users) && !count($users))
+                            @if (isset($states) && !count($states))
                                 <tfoot>
                                     <tr>
                                         <td colspan="4">{{ __('No records found')  }}</td>
@@ -210,7 +173,7 @@
                     <div class="box-tools">
 
                         <div class="pull-right">
-                            {!! $users->render() !!}
+                            {!! $states->render() !!}
                         </div>
 
                     </div>

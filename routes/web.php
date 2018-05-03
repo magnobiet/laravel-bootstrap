@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::get('home', 'HomeController@index')->name('home');
 
 Route::resource('users', 'UsersController');
+Route::resource('states', 'StatesController', ['only' => ['index', 'show']]);
+Route::resource('cities', 'CitiesController', ['only' => ['index']]);

@@ -170,6 +170,22 @@ return [
             'icon' => 'users',
             'url'  => 'users',
         ],
+        [
+            'text'    => 'Data',
+            'icon'    => 'database',
+            'submenu' => [
+                [
+                    'text' => 'States',
+                    'icon' => 'map',
+                    'url'  => 'states',
+                ],
+                [
+                    'text' => 'Cities',
+                    'icon' => 'map-marker',
+                    'url'  => 'cities',
+                ],
+            ],
+        ],
     ],
 
     /*
