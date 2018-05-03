@@ -169,6 +169,7 @@ return [
         OwenIt\Auditing\AuditingServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
+        JD\Cloudder\CloudderServiceProvider::class,
 
     ],
 
@@ -218,6 +219,8 @@ return [
         'URL'          => Illuminate\Support\Facades\URL::class,
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
+
+        'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
 
     ],
 
