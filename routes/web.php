@@ -22,3 +22,4 @@ Route::get('home', 'HomeController@index')->name('home');
 Route::resource('users', 'UsersController');
 Route::resource('states', 'StatesController', ['only' => ['index', 'show']]);
 Route::resource('cities', 'CitiesController', ['only' => ['index']]);
+Route::resource('audits', 'AuditsController', ['only' => ['index', 'show']]);

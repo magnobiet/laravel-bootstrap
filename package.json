@@ -22,6 +22,7 @@
   "dependencies": {
     "admin-lte": "^2.4.3",
     "bootstrap": "^3.3.7",
+    "jquery-jsonview": "^1.2.3",
     "jquery-slimscroll": "^1.3.8",
     "lodash": "^4.17.10",
     "mark.js": "^8.11.1"

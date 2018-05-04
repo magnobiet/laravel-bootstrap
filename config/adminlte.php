@@ -166,6 +166,11 @@ return [
         ],
         'SYSTEM',
         [
+            'text' => 'Audits',
+            'icon' => 'history',
+            'url'  => 'audits',
+        ],
+        [
             'text' => 'Users',
             'icon' => 'users',
             'url'  => 'users',

@@ -87,6 +87,14 @@ $(document).ready(() => {
 
 	}
 
+	function jsonViewer(target) {
+
+		if (target.length) {
+			target.JSONView(target.html());
+		}
+
+	}
+
 	function init() {
 
 		formValidate($('form[data-validate]'));
@@ -96,6 +104,8 @@ $(document).ready(() => {
 		logoutButton($('[data-logout]'));
 
 		markSearchedWord(document.querySelectorAll('.content .box-body'));
+
+		jsonViewer($('[data-json-viewer]'));
 
 	}
 
