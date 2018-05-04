@@ -1,9 +1,25 @@
-@import "_mixins";
+@import "mixins";
 
-$values: (0, 5, 10, 15, 20, 25, 30);
+$values: 0, 5, 10, 15, 20, 25, 30;
 
 @include make-helper("margin", "m", $values, "px");
 @include make-helper("margin-top", "m-t", $values, "px");
 @include make-helper("margin-right", "m-r", $values, "px");
 @include make-helper("margin-bottom", "m-b", $values, "px");
 @include make-helper("margin-left", "m-l", $values, "px");
+
+.display-none {
+	display: none;
+}
+
+.display-inline {
+	display: inline;
+}
+
+.display-inline-block {
+	display: inline-block;
+}
+
+.display-block {
+	display: block;
+}

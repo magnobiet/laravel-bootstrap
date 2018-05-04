@@ -107,7 +107,7 @@
 
                                                     </div>
 
-                                                    <form id="logout-form" class="logout-form" action="{{ url(config('adminlte.logout_url', 'auth/logout')) }}" method="POST">
+                                                    <form id="logout-form" class="logout-form display-none" action="{{ url(config('adminlte.logout_url', 'auth/logout')) }}" method="POST">
 
                                                         @if(config('adminlte.logout_method'))
                                                             {{ method_field(config('adminlte.logout_method')) }}

@@ -36,8 +36,8 @@
 
                     @if ($errors->has('name'))
                         <span class="help-block">
-						<strong>{{ $errors->first('name') }}</strong>
-					</span>
+                            <strong>{{ $errors->first('name') }}</strong>
+                        </span>
                     @endif
 
                 </div>
@@ -50,8 +50,8 @@
 
                     @if ($errors->has('email'))
                         <span class="help-block">
-						<strong>{{ $errors->first('email') }}</strong>
-					</span>
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
                     @endif
 
                 </div>
@@ -64,8 +64,8 @@
 
                     @if ($errors->has('password'))
                         <span class="help-block">
-						<strong>{{ $errors->first('password') }}</strong>
-					</span>
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
                     @endif
 
                 </div>
@@ -78,8 +78,8 @@
 
                     @if ($errors->has('password_confirmation'))
                         <span class="help-block">
-						<strong>{{ $errors->first('password_confirmation') }}</strong>
-					</span>
+                            <strong>{{ $errors->first('password_confirmation') }}</strong>
+                        </span>
                     @endif
 
                 </div>
@@ -90,7 +90,7 @@
 
             </form>
 
-            <div class="auth-links">
+            <div class="m-t-10">
 
                 <a href="{{ url(config('adminlte.login_url', 'login')) }}" class="text-center">
                     {{ trans('adminlte::adminlte.i_already_have_a_membership') }}

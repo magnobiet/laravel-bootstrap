@@ -1,11 +1,11 @@
 @mixin make-helper($selector, $prefix, $values, $unit: "px", $separator: "-") {
 	/*
-	 * Usage:
-	 *
-	 * $values: (1, 2, 3, 4);
-	 * @include make-helper("margin", "m", $values, "em");
-	 *
-	 */
+	* Usage:
+	*
+	* $values: 0, 1, 2, 3, 4;
+	* @include make-helper('margin', 'm', $values, 'em');
+	*
+	*/
 
 	@each $value in $values {
 		.#{$prefix}#{$separator}#{$value} {

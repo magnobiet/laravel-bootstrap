@@ -67,6 +67,26 @@ $(document).ready(() => {
 		}
 	}
 
+	function markSearchedWord(target, options = {}) {
+
+		const urlParams = new URLSearchParams(window.location.search);
+
+		if (urlParams.has('search')) {
+
+			const mark = new Mark(target);
+
+			mark.unmark({
+				done() {
+
+					mark.mark(urlParams.get('search'), options);
+
+				}
+			});
+
+		}
+
+	}
+
 	function init() {
 
 		formValidate($('form[data-validate]'));
@@ -74,6 +94,8 @@ $(document).ready(() => {
 
 		tableDestroyEntry($('[data-destroy]'));
 		logoutButton($('[data-logout]'));
+
+		markSearchedWord(document.querySelectorAll('.content .box-body'));
 
 	}
 

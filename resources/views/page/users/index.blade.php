@@ -171,7 +171,7 @@
                                                     {{ __('Edit') }}
                                                 </a>
 
-                                                <form method="POST" action="{{ route('users.destroy', [ 'id' => $value->id ]) }}" class="destroy-form" role="form">
+                                                <form method="POST" action="{{ route('users.destroy', [ 'id' => $value->id ]) }}" class="display-inline" role="form">
 
                                                     <input type="hidden" name="_method" value="DELETE">
 

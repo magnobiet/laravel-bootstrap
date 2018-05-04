@@ -1,62 +1,62 @@
 @if (is_array($item))
 
-	<li class="{{ $item['top_nav_class'] }}">
+    <li class="{{ $item['top_nav_class'] }}">
 
-	   <a href="{{ $item['href'] }}"
-		   @if (isset($item['submenu'])) class="dropdown-toggle" data-toggle="dropdown" @endif
-		   @if (isset($item['target'])) target="{{ $item['target'] }}" @endif
-		>
+        <a href="{{ $item['href'] }}"
+           @if (isset($item['submenu'])) class="dropdown-toggle" data-toggle="dropdown" @endif
+           @if (isset($item['target'])) target="{{ $item['target'] }}" @endif
+        >
 
-			<i class="fa fa-fw fa-{{ $item['icon'] or 'circle-o' }} {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}" aria-hidden="true"></i>
-			{{ $item['text'] }}
+            <i class="fa fa-fw fa-{{ $item['icon'] or 'circle-o' }} {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}" aria-hidden="true"></i>
+            {{ $item['text'] }}
 
-			@if (isset($item['label']))
-			<span class="label label-{{ $item['label_color'] or 'primary' }}">
-				{{ $item['label'] }}
-			</span>
-			@elseif (isset($item['submenu']))
-			<span class="caret"></span>
-			@endif
+            @if (isset($item['label']))
+                <span class="label label-{{ $item['label_color'] or 'primary' }}">
+                    {{ $item['label'] }}
+                </span>
+            @elseif (isset($item['submenu']))
+                <span class="caret"></span>
+            @endif
 
-		</a>
+        </a>
 
-		@if (isset($item['submenu']))
-		<ul class="dropdown-menu" role="menu">
+        @if (isset($item['submenu']))
+            <ul class="dropdown-menu" role="menu">
 
-			@foreach($item['submenu'] as $subitem)
+                @foreach($item['submenu'] as $subitem)
 
-				@if (is_string($subitem))
+                    @if (is_string($subitem))
 
-					@if($subitem == '-')
-					<li role="separator" class="divider"></li>
-					@else
-					<li class="dropdown-header">{{ $subitem }}</li>
-					@endif
+                        @if($subitem == '-')
+                            <li role="separator" class="divider"></li>
+                        @else
+                            <li class="dropdown-header">{{ $subitem }}</li>
+                        @endif
 
-				@else
-				<li class="{{ $subitem['top_nav_class'] }}">
+                    @else
+                        <li class="{{ $subitem['top_nav_class'] }}">
 
-					<a href="{{ $subitem['href'] }}">
+                            <a href="{{ $subitem['href'] }}">
 
-						<i class="fa fa-{{ $subitem['icon'] or 'circle-o' }} {{ isset($subitem['icon_color']) ? 'text-' . $subitem['icon_color'] : '' }}" aria-hidden="true"></i>
-						{{ $subitem['text'] }}
+                                <i class="fa fa-{{ $subitem['icon'] or 'circle-o' }} {{ isset($subitem['icon_color']) ? 'text-' . $subitem['icon_color'] : '' }}" aria-hidden="true"></i>
+                                {{ $subitem['text'] }}
 
-						@if (isset($subitem['label']))
-						<span class="label label-{{ $subitem['label_color'] or 'primary' }}">
-							{{ $subitem['label'] }}
-						</span>
-						@endif
+                                @if (isset($subitem['label']))
+                                    <span class="label label-{{ $subitem['label_color'] or 'primary' }}">
+                                        {{ $subitem['label'] }}
+                                    </span>
+                                @endif
 
-					</a>
+                            </a>
 
-				</li>
-				@endif
+                        </li>
+                    @endif
 
-			@endforeach
+                @endforeach
 
-		</ul>
-		@endif
+            </ul>
+        @endif
 
-	</li>
+    </li>
 
 @endif

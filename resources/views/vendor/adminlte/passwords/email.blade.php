@@ -2,7 +2,7 @@
 
 @section('adminlte_css')
 
-	@yield('css')
+    @yield('css')
 
 @stop
 
@@ -10,58 +10,58 @@
 
 @section('body')
 
-	<div class="login-box">
+    <div class="login-box">
 
-		<div class="login-logo">
+        <div class="login-logo">
 
-			<a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">
-				{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}
-			</a>
+            <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">
+                {!! config('adminlte.logo', '<b>Admin</b>LTE') !!}
+            </a>
 
-		</div>
+        </div>
 
-		<div class="login-box-body">
+        <div class="login-box-body">
 
-			<p class="login-box-msg">{{ trans('adminlte::adminlte.password_reset_message') }}</p>
+            <p class="login-box-msg">{{ trans('adminlte::adminlte.password_reset_message') }}</p>
 
-			@if (session('status'))
-			<div class="alert alert-success">
-				{{ session('status') }}
-			</div>
-			@endif
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
 
-			<form action="{{ url(config('adminlte.password_email_url', 'password/email')) }}" method="post">
+            <form action="{{ url(config('adminlte.password_email_url', 'password/email')) }}" method="post">
 
-				{!! csrf_field() !!}
+                {!! csrf_field() !!}
 
-				<div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">
+                <div class="form-group has-feedback {{ $errors->has('email') ? 'has-error' : '' }}">
 
-					<input type="email" name="email" class="form-control" value="{{ $email or old('email') }}" placeholder="{{ trans('adminlte::adminlte.email') }}">
+                    <input type="email" name="email" class="form-control" value="{{ $email or old('email') }}" placeholder="{{ trans('adminlte::adminlte.email') }}">
 
-					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 
-					@if ($errors->has('email'))
-					<span class="help-block">
-						<strong>{{ $errors->first('email') }}</strong>
-					</span>
-					@endif
+                    @if ($errors->has('email'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
 
-				</div>
+                </div>
 
-				<button type="submit" class="btn btn-primary btn-block btn-flat">
-					{{ trans('adminlte::adminlte.send_password_reset_link') }}
-				</button>
+                <button type="submit" class="btn btn-primary btn-block btn-flat">
+                    {{ trans('adminlte::adminlte.send_password_reset_link') }}
+                </button>
 
-			</form>
+            </form>
 
-		</div>
+        </div>
 
-	</div>
+    </div>
 
 @stop
 
 @section('adminlte_js')
 
-	@yield('js')
+    @yield('js')
 
 @stop
