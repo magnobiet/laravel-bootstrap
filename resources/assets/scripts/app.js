@@ -95,6 +95,35 @@ $(document).ready(() => {
 
 	}
 
+	function checkAll(target) {
+
+		if (target.length) {
+
+			const checkboxes = target.data().checkAll ? $(target.data().checkAll).find('input:checkbox') : $('input:checkbox');
+			let checked = false;
+
+			target.on('click', () => {
+
+				target.find('span').toggleClass('hide');
+
+				if (!checked) {
+					checkboxes.prop('checked', true);
+				} else {
+					checkboxes.prop('checked', false);
+				}
+
+				if ($.fn.iCheck) {
+					checkboxes.iCheck('update');
+				}
+
+				checked = !checked;
+
+			});
+
+		}
+
+	}
+
 	function init() {
 
 		formValidate($('form[data-validate]'));
@@ -106,6 +135,7 @@ $(document).ready(() => {
 		markSearchedWord(document.querySelectorAll('.content .box-body'));
 
 		jsonViewer($('[data-json-viewer]'));
+		checkAll($('[data-check-all]'));
 
 	}
 
