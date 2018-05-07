@@ -52,6 +52,11 @@
 
                     @endif
 
+                    <div class="form-group">
+                        <label for="role">{{ __('Role') }}</label>
+                        <p class="form-control-static">-</p>
+                    </div>
+
                 </div>
 
                 <div class="box-footer">

@@ -147,6 +147,7 @@
                                     <th class="id">{{ __('ID') }}</th>
                                     <th>{{ __('Name') }}</th>
                                     <th>{{ __('Email') }}</th>
+                                    <th>{{ __('Role') }}</th>
                                     <th class="actions">{{ __('Actions') }}</th>
                                 </tr>
                             </thead>
@@ -159,6 +160,7 @@
                                             <td>{{ $value->id }}</td>
                                             <td>{{ $value->name }}</td>
                                             <td>{{ $value->email }}</td>
+                                            <td>-</td>
                                             <td>
 
                                                 <a href="{{ route('users.show', [ 'id' => $value->id ]) }}" class="btn btn-default btn-xs" title="{{ __('Show') }}">
