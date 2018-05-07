@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
         } else {
 
             $this->app->register(\KKomelin\TranslatableStringExporter\Providers\ExporterServiceProvider::class);
+            $this->app->register(\Laracasts\Generators\GeneratorsServiceProvider::class);
 
         }
 

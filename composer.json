@@ -1,7 +1,10 @@
 {
   "name": "laravel/laravel",
   "description": "The Laravel Framework.",
-  "keywords": ["framework", "laravel"],
+  "keywords": [
+    "framework",
+    "laravel"
+  ],
   "license": "MIT",
   "type": "project",
   "require": {
@@ -24,6 +27,7 @@
     "barryvdh/laravel-debugbar": "^3.1",
     "filp/whoops": "^2.0",
     "fzaninotto/faker": "^1.4",
+    "laracasts/generators": "^1.1",
     "mockery/mockery": "^1.0",
     "nunomaduro/collision": "^2.0",
     "phpunit/phpunit": "^7.0"
@@ -46,7 +50,8 @@
     "laravel": {
       "dont-discover": [
         "rollbar/rollbar-laravel",
-        "kkomelin/laravel-translatable-string-exporter"
+        "kkomelin/laravel-translatable-string-exporter",
+        "laracasts/generators"
       ]
     }
   },
