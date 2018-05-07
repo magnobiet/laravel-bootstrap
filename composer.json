@@ -1,9 +1,10 @@
 {
-  "name": "laravel/laravel",
-  "description": "The Laravel Framework.",
+  "name": "magnobiet/laravel-bootstrap",
+  "description": "A Laravel application using several nice community packages",
   "keywords": [
     "framework",
-    "laravel"
+    "laravel",
+    "bootstrap"
   ],
   "license": "MIT",
   "type": "project",
