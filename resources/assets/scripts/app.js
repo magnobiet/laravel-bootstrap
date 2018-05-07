@@ -132,7 +132,7 @@ $(document).ready(() => {
 		tableDestroyEntry($('[data-destroy]'));
 		logoutButton($('[data-logout]'));
 
-		markSearchedWord(document.querySelectorAll('.content .box-body'));
+		markSearchedWord(document.querySelectorAll('.content .box-body tbody'));
 
 		jsonViewer($('[data-json-viewer]'));
 		checkAll($('[data-check-all]'));
