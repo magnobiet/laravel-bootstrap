@@ -1,0 +1,33 @@
+{
+  "name": "laravel-bootstrap",
+  "scripts": {
+    "postdeploy": "php artisan key:generate && php artisan db:seed"
+  },
+  "env": {
+    "APP_ENV": "production",
+    "APP_DEBUG": "true",
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
+    "HEROKU_PARENT_APP_NAME": {
+      "required": true
+    },
+    "DB_CONNECTION": {
+      "required": true
+    },
+    "ROLLBAR_LEVEL": {
+      "required": true
+    },
+    "ROLLBAR_TOKEN": {
+      "required": true
+    }
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [{
+    "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+  }, {
+    "url": "https://github.com/heroku/heroku-buildpack-php"
+  }]
+}
