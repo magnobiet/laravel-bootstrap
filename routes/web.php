@@ -17,9 +17,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home', 'HomeController@index')->name('home');
+Route::group(['middleware' => ['auth']], function () {
 
-Route::resource('users', 'UsersController');
-Route::resource('states', 'StatesController', ['only' => ['index', 'show']]);
-Route::resource('cities', 'CitiesController', ['only' => ['index']]);
-Route::resource('audits', 'AuditsController', ['only' => ['index', 'show']]);
+    Route::get('home', 'HomeController@index')->name('home');
+
+    Route::resource('roles', 'RolesController');
+    Route::resource('permissions', 'PermissionsController');
+    Route::resource('users', 'UsersController');
+
+    Route::resource('states', 'StatesController', ['only' => ['index', 'show']]);
+    Route::resource('cities', 'CitiesController', ['only' => ['index']]);
+
+    Route::resource('audits', 'AuditsController', ['only' => ['index', 'show']]);
+
+});

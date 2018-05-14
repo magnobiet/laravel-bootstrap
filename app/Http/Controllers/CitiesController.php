@@ -32,11 +32,9 @@ class CitiesController extends Controller
     public function __construct(CityRepository $repository, CityValidator $validator)
     {
 
-        $this->middleware('auth');
-
         $this->repository = $repository;
         $this->validator = $validator;
-        
+
     }
 
     /**

@@ -31,8 +31,6 @@ class AuditsController extends Controller
     public function __construct(AuditRepository $repository, AuditValidator $validator)
     {
 
-        $this->middleware('auth');
-
         $this->repository = $repository;
         $this->validator = $validator;
 

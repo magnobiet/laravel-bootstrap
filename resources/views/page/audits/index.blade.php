@@ -52,7 +52,7 @@
 
                                                 {{ $value->user->name }}
 
-                                                <a href="{{ route('users.show', [ 'id' => $value->user->id ]) }}" class="btn btn-link btn-xs">
+                                                <a href="{{ route('audits.show', [ 'id' => $value->user->id ]) }}" class="btn btn-link btn-xs">
                                                     <i class="fa fa-external-link" aria-hidden="true"></i>
                                                 </a>
 
