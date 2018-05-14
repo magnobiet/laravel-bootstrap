@@ -8,6 +8,12 @@ $values: 0, 5, 10, 15, 20, 25, 30;
 @include make-helper("margin-bottom", "m-b", $values, "px");
 @include make-helper("margin-left", "m-l", $values, "px");
 
+@include make-helper("padding", "p", $values, "px");
+@include make-helper("padding-top", "p-t", $values, "px");
+@include make-helper("padding-right", "p-r", $values, "px");
+@include make-helper("padding-bottom", "p-b", $values, "px");
+@include make-helper("padding-left", "p-l", $values, "px");
+
 .display-none {
 	display: none;
 }

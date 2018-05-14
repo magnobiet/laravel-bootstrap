@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
+use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
 use App\Validators\UserValidator;
 use Exception;
@@ -25,6 +26,11 @@ class UsersController extends Controller
     protected $repository;
 
     /**
+     * @var RoleRepository
+     */
+    protected $roleRepository;
+
+    /**
      * @var UserValidator
      */
     protected $validator;
@@ -33,20 +39,22 @@ class UsersController extends Controller
      * UsersController constructor.
      *
      * @param UserRepository $repository
+     * @param RoleRepository $roleRepository
      * @param UserValidator  $validator
      */
-    public function __construct(UserRepository $repository, UserValidator $validator)
+    public function __construct(UserRepository $repository, RoleRepository $roleRepository, UserValidator $validator)
     {
 
-        $this->middleware('auth');
-
         $this->repository = $repository;
+        $this->roleRepository = $roleRepository;
         $this->validator = $validator;
 
     }
 
     /**
      * Display a listing of the resource.
+     *
+     * @param Request $request
      *
      * @return \Illuminate\Http\Response
      */
@@ -78,7 +86,9 @@ class UsersController extends Controller
     public function create()
     {
 
-        return view('page.users.create');
+        $roles = $this->roleRepository->all();
+
+        return view('page.users.create', compact('roles'));
 
     }
 
@@ -199,8 +209,9 @@ class UsersController extends Controller
     {
 
         $user = $this->repository->find($id);
+        $roles = $this->roleRepository->all();
 
-        return view('page.users.edit', compact('user'));
+        return view('page.users.edit', compact('user', 'roles'));
 
     }
 

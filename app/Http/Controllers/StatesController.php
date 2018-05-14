@@ -32,8 +32,6 @@ class StatesController extends Controller
     public function __construct(StateRepository $repository, StateValidator $validator)
     {
 
-        $this->middleware('auth');
-
         $this->repository = $repository;
         $this->validator = $validator;
 

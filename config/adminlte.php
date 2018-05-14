@@ -166,14 +166,30 @@ return [
         ],
         'SYSTEM',
         [
-            'text' => 'Audits',
-            'icon' => 'history',
-            'url'  => 'audits',
-        ],
-        [
-            'text' => 'Users',
-            'icon' => 'users',
-            'url'  => 'users',
+            'text'    => 'Security',
+            'icon'    => 'shield',
+            'submenu' => [
+                [
+                    'text' => 'Permissions',
+                    'icon' => 'lock',
+                    'url'  => 'permissions',
+                ],
+                [
+                    'text' => 'Roles',
+                    'icon' => 'user-secret',
+                    'url'  => 'roles',
+                ],
+                [
+                    'text' => 'Users',
+                    'icon' => 'users',
+                    'url'  => 'users',
+                ],
+                [
+                    'text' => 'Audits',
+                    'icon' => 'history',
+                    'url'  => 'audits',
+                ],
+            ],
         ],
         [
             'text'    => 'Data',

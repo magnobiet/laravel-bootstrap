@@ -32,7 +32,6 @@
                     <div class="box-body">
 
                         <fieldset>
-
                             {{ csrf_field() }}
 
                             <div class="form-group">
@@ -53,6 +52,16 @@
                             <div class="form-group">
                                 <label for="photo">{{ __('Photo') }}</label>
                                 <input type="file" id="photo" name="photo" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="role">{{ __('Role') }}</label>
+                                <select name="role" id="role" class="form-control" required>
+                                    @foreach ($roles as $key => $value)
+                                        <option value="">{{ __('Select')  }}</option>
+                                        <option value="{{ $value->id }}">{{ $value->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
 
                         </fieldset>
