@@ -7,11 +7,11 @@
            @if (isset($item['target'])) target="{{ $item['target'] }}" @endif
         >
 
-            <i class="fa fa-fw fa-{{ $item['icon'] or 'circle-o' }} {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}" aria-hidden="true"></i>
+            <i class="fa fa-fw fa-{{ $item['icon'] ?? 'circle-o' }} {{ isset($item['icon_color']) ? 'text-' . $item['icon_color'] : '' }}" aria-hidden="true"></i>
             {{ $item['text'] }}
 
             @if (isset($item['label']))
-                <span class="label label-{{ $item['label_color'] or 'primary' }}">
+                <span class="label label-{{ $item['label_color'] ?? 'primary' }}">
                     {{ $item['label'] }}
                 </span>
             @elseif (isset($item['submenu']))
@@ -38,11 +38,11 @@
 
                             <a href="{{ $subitem['href'] }}">
 
-                                <i class="fa fa-{{ $subitem['icon'] or 'circle-o' }} {{ isset($subitem['icon_color']) ? 'text-' . $subitem['icon_color'] : '' }}" aria-hidden="true"></i>
+                                <i class="fa fa-{{ $subitem['icon'] ?? 'circle-o' }} {{ isset($subitem['icon_color']) ? 'text-' . $subitem['icon_color'] : '' }}" aria-hidden="true"></i>
                                 {{ $subitem['text'] }}
 
                                 @if (isset($subitem['label']))
-                                    <span class="label label-{{ $subitem['label_color'] or 'primary' }}">
+                                    <span class="label label-{{ $subitem['label_color'] ?? 'primary' }}">
                                         {{ $subitem['label'] }}
                                     </span>
                                 @endif
