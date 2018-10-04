@@ -1,33 +1,35 @@
 version: "3"
 services:
     app:
-        build: ./php7-fpm
+        build: .
         depends_on:
             - db
         restart: always
         volumes:
-            - ./app/:/var/www
-            - ./permission.sh:/var/www/permission.sh
+            - app:/var/www
+            - ./docker/permission.sh:/var/www/permission.sh
     nginx:
         image: nginx:1.13
         depends_on:
             - app
+        links:
+            - app
         ports:
-            - 80:80
+            - 8083:80
         restart: always
         volumes:
-            - ./app/:/var/www
-            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - app:/var/www
+            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
     db:
         image: mariadb:latest
         environment:
-            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-            - MYSQL_DATABASE=${MYSQL_DATABASE}
-            - MYSQL_USER=${MYSQL_USER}
-            - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+            - MYSQL_DATABASE=${DB_DATABASE}
+            - MYSQL_USER=${DB_USERNAME}
+            - MYSQL_PASSWORD=${DB_PASSWORD}
         restart: always
         volumes:
             - db-data:/var/lib/mysql
 volumes:
+    app:
     db-data:
         driver: local
