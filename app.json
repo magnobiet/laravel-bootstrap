@@ -4,21 +4,10 @@
         "postdeploy": "php artisan key:generate && php artisan db:seed && php artisan app:release"
     },
     "env": {
-        "APP_ENV": "production",
-        "APP_DEBUG": "true",
-        "HEROKU_APP_NAME": {
+        "APP_ENV": {
             "required": true
         },
-        "HEROKU_PARENT_APP_NAME": {
-            "required": true
-        },
-        "DB_CONNECTION": {
-            "required": true
-        },
-        "ROLLBAR_LEVEL": {
-            "required": true
-        },
-        "ROLLBAR_TOKEN": {
+        "APP_DEBUG": {
             "required": true
         }
     },
