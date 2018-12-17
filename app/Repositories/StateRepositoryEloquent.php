@@ -16,8 +16,8 @@ class StateRepositoryEloquent extends BaseRepository implements StateRepository
 {
 
     protected $fieldSearchable = [
-        'name' => 'ilike',
-        'abbr' => 'ilike',
+        'name' => 'like',
+        'abbr' => 'like',
     ];
 
     /**

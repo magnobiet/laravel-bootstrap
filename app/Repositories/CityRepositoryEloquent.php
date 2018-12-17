@@ -16,7 +16,7 @@ class CityRepositoryEloquent extends BaseRepository implements CityRepository
 {
 
     protected $fieldSearchable = [
-        'name' => 'ilike',
+        'name' => 'like',
     ];
 
     /**
