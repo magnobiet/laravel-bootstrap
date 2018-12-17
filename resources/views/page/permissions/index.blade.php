@@ -60,6 +60,7 @@
                                         <option value="id" @if (!empty($filter) && !empty($filter['orderBy']) && $filter['orderBy'] === 'id') selected @endif>{{ __('ID') }}</option>
                                         <option value="name" @if (!empty($filter) && !empty($filter['orderBy']) && $filter['orderBy'] === 'name') selected @endif>{{ __('Name') }}</option>
                                         <option value="email" @if (!empty($filter) && !empty($filter['orderBy']) && $filter['orderBy'] === 'email') selected @endif>{{ __('Email') }}</option>
+                                        <option value="description" @if (!empty($filter) && !empty($filter['orderBy']) && $filter['orderBy'] === 'description') selected @endif>{{ __('Description') }}</option>
                                     </select>
 
                                 </div>
@@ -205,17 +206,17 @@
 
                 </div>
 
-                {{--<div class="box-footer">--}}
+                <div class="box-footer">
 
-                {{--<div class="box-tools">--}}
+                    <div class="box-tools">
 
-                {{--<div class="pull-right">--}}
-                {{--{!! $permissions->render() !!}--}}
-                {{--</div>--}}
+                        <div class="pull-right">
+                            {!! $permissions->render() !!}
+                        </div>
 
-                {{--</div>--}}
+                    </div>
 
-                {{--</div>--}}
+                </div>
 
             </div>
 

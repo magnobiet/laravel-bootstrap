@@ -1,8 +1,6 @@
 import './bootstrap';
 import './plugins';
-import {
-	__
-} from './localization';
+import {__} from './localization';
 
 $(document).ready(() => {
 
@@ -34,8 +32,8 @@ $(document).ready(() => {
 		if (target.length && $.fn.iCheck) {
 
 			target.iCheck({
-				checkboxClass: 'icheckbox_square-blue',
-				radioClass: 'iradio_square-blue',
+				checkboxClass: 'icheckbox_minimal-blue',
+				radioClass: 'iradio_minimal-blue',
 				increaseArea: '20%'
 			});
 

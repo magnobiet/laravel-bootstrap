@@ -14,21 +14,32 @@ class RolesTableSeeder extends Seeder
     public function run()
     {
 
-        DB::table('roles')->insert([
+        $table = 'roles';
+        $now = date('Y-m-d H:i:s');
+
+        if (env('APP_ENV') === 'local') {
+            DB::table($table)->truncate();
+        }
+
+        DB::table($table)->insert([
             [
                 'id'          => 1,
-                'name'        => 'root',
+                'name'        => 'Root',
                 'description' => 'Superuser',
+                'created_at'  => $now,
             ],
             [
                 'id'          => 2,
-                'name'        => 'administrator',
+                'name'        => 'Administrator',
                 'description' => 'System administrator',
-            ],
+                'created_at'  => $now,
+            ]
+            ,
             [
                 'id'          => 3,
-                'name'        => 'user',
+                'name'        => 'User',
                 'description' => 'System user',
+                'created_at'  => $now,
             ],
         ]);
 

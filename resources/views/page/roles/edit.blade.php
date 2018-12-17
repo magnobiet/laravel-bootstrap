@@ -48,6 +48,40 @@
 
                         </fieldset>
 
+                        <fieldset>
+
+                            <div class="panel panel-default m-b-0">
+
+                                <div class="panel-heading">
+
+                                    {{ __('Permissions') }}
+
+                                    <button type="button" class="btn btn-default btn-xs pull-right" data-check-all="#permissions">
+
+                                        <span class="unchecked">
+                                            <i class="fa fa-square-o" aria-hidden="true"></i>
+                                            {{ __('Check all') }}
+                                        </span>
+
+                                        <span class="checked hide">
+                                            <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                                            {{ __('Uncheck all') }}
+                                        </span>
+
+                                    </button>
+
+                                </div>
+
+                                <div id="permissions" class="panel-body p-b-0">
+
+                                    @include('page.roles.components.permissions-by-route')
+
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
                     </div>
 
                     <div class="box-footer">

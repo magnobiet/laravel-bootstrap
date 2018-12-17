@@ -37,6 +37,24 @@
                         <p class="form-control-static">{{ $role->description }}</p>
                     </div>
 
+                    @if ($role->permissions)
+                        <div class="form-group">
+                            <label>{{ __('Permissions') }}</label>
+                            <ul class="form-control-static">
+                                @forelse($role->permissions as $permission)
+                                    <li>
+                                        {{ $permission->description }}
+                                        (<small class="text-muted">{{ $permission->name }}</small>)
+                                    </li>
+                                @empty
+                                    <li>
+                                        {{ __('No records found') }}
+                                    </li>
+                                @endforelse
+                            </ul>
+                        </div>
+                    @endif
+
                 </div>
 
                 <div class="box-footer">

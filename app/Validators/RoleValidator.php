@@ -18,7 +18,15 @@ class RoleValidator extends LaravelValidator
      * @var array
      */
     protected $rules = [
-        ValidatorInterface::RULE_CREATE => [],
-        ValidatorInterface::RULE_UPDATE => [],
+        ValidatorInterface::RULE_CREATE => [
+            'name'        => 'required|string',
+            'description' => 'required|string',
+            'permissions' => 'required|array',
+        ],
+        ValidatorInterface::RULE_UPDATE => [
+            'name'        => 'required|string',
+            'description' => 'required|string',
+            'permissions' => 'required|array',
+        ],
     ];
 }

@@ -85,7 +85,12 @@ class RolesController extends Controller
     public function create()
     {
 
-        $permissions = $this->permissionsRepository->all();
+        $permissionsList = $this->permissionsRepository->all();
+        $permissions = [];
+
+        foreach ($permissionsList as $permission) {
+            $permissions[explode('.', $permission->name)[0]][] = $permission;
+        }
 
         return view('page.roles.create', compact('permissions'));
 
@@ -184,7 +189,14 @@ class RolesController extends Controller
 
         $role = $this->repository->find($id);
 
-        return view('page.roles.edit', compact('role'));
+        $permissionsList = $this->permissionsRepository->all();
+        $permissions = [];
+
+        foreach ($permissionsList as $permission) {
+            $permissions[explode('.', $permission->name)[0]][] = $permission;
+        }
+
+        return view('page.roles.edit', compact('role', 'permissions'));
 
     }
 
