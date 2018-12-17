@@ -1,4 +1,4 @@
-import portugueseBrazil from './../../lang/pt-BR.json';
+import portugueseBrazil from './../lang/pt-BR.json';
 
 export const dictionary = {
 	'pt-BR': portugueseBrazil

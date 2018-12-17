@@ -4,6 +4,26 @@
 
 ## Getting Started
 
+```bash
+# composer create-project --prefer-dist magnobiet/laravel-bootstrap awesome-app-name
+git clone https://github.com/magnobiet/laravel-bootstrap awesome-app-name && cd $_
+
+npm install
+npm run prod
+
+composer install
+
+php artisan migrate --seed
+php artisan passport:install --force
+```
+
+### Development
+
+```bash
+# Export translatable strings
+php artisan translatable:export pt-BR 
+```
+
 ## Installed packages
 
 - [arcanedev/log-viewer](https://github.com/arcanedev/logviewer)

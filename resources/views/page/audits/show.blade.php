@@ -41,11 +41,17 @@
                         <label>{{ __('User') }}</label>
                         <p class="form-control-static">
 
-                            {{ $audit->user->name }}
+                            @if ($audit->user)
 
-                            <a href="{{ route('users.show', [ 'id' => $audit->user->id ]) }}" class="btn btn-link btn-xs">
-                                <i class="fa fa-external-link" aria-hidden="true"></i>
-                            </a>
+                                {{ $audit->user->name }}
+
+                                <a href="{{ route('users.show', [ 'id' => $audit->user->id ]) }}" class="btn btn-link btn-xs">
+                                    <i class="fa fa-external-link" aria-hidden="true"></i>
+                                </a>
+
+                            @else
+                                -
+                            @endif
 
                         </p>
                     </div>
