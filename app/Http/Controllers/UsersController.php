@@ -6,6 +6,7 @@ use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
+use App\Services\Cloudinary;
 use App\Validators\UserValidator;
 use Exception;
 use Illuminate\Http\Request;
@@ -36,18 +37,40 @@ class UsersController extends Controller
     protected $validator;
 
     /**
+     * @var Cloudinary
+     */
+    protected $cloudinary;
+
+    protected $profileImageSettings = [
+        'width'   => 512,
+        'height'  => 512,
+        'format'  => 'png',
+        'gravity' => 'face',
+        'crop'    => 'thumb',
+    ];
+
+    /**
+     * @var $profileImageTags
+     */
+    protected $profileImageTags = [
+        'profile_image',
+    ];
+
+    /**
      * UsersController constructor.
      *
      * @param UserRepository $repository
      * @param RoleRepository $roleRepository
      * @param UserValidator  $validator
+     * @param Cloudinary     $cloudinary
      */
-    public function __construct(UserRepository $repository, RoleRepository $roleRepository, UserValidator $validator)
+    public function __construct(UserRepository $repository, RoleRepository $roleRepository, UserValidator $validator, Cloudinary $cloudinary)
     {
 
         $this->repository = $repository;
         $this->roleRepository = $roleRepository;
         $this->validator = $validator;
+        $this->cloudinary = $cloudinary;
 
     }
 
@@ -99,7 +122,6 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      *
-     * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
     public function store(UserCreateRequest $request)
     {
@@ -113,18 +135,8 @@ class UsersController extends Controller
 
             if ($request->hasFile('photo') && $request->file('photo')->isValid()) {
 
-                // TODO: migrate to a service
-                \Cloudder::upload($request->file('photo'), null, [
-                    "width"   => 512,
-                    "height"  => 512,
-                    "format"  => "png",
-                    "gravity" => "face",
-                    "crop"    => "thumb",
-                ], [
-                    "profile_image",
-                ]);
+                $photo = $this->cloudinary->upload($request->file('photo'), null, $this->profileImageSettings, $this->profileImageTags);
 
-                $photo = \Cloudder::getResult();
                 $data['photo_url'] = $photo['secure_url'];
 
             }
@@ -223,7 +235,6 @@ class UsersController extends Controller
      *
      * @return Response
      *
-     * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
     public function update(UserUpdateRequest $request, $id)
     {
@@ -242,25 +253,14 @@ class UsersController extends Controller
 
             if ($request->hasFile('photo') && $request->file('photo')->isValid()) {
 
-                // TODO: migrate to a service
-                \Cloudder::upload($request->file('photo'), null, [
-                    "width"   => 512,
-                    "height"  => 512,
-                    "format"  => "png",
-                    "gravity" => "face",
-                    "crop"    => "thumb",
-                ], [
-                    "profile_image",
-                ]);
+                $photo = $this->cloudinary->upload($request->file('photo'), null, $this->profileImageSettings, $this->profileImageTags);
 
-                $photo = \Cloudder::getResult();
                 $data['photo_url'] = $photo['secure_url'];
 
                 $oldPhotoUrlFragments = explode('/', $request->old_photo);
                 $photoPublicId = explode('.', end($oldPhotoUrlFragments))[0];
 
-                \Cloudder::destroyImage($photoPublicId);
-                \Cloudder::delete($photoPublicId);
+                $this->cloudinary->remove($photoPublicId);
 
             }
 
