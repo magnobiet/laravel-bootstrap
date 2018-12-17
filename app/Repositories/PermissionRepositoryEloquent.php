@@ -16,8 +16,8 @@ class PermissionRepositoryEloquent extends BaseRepository implements PermissionR
 {
 
     protected $fieldSearchable = [
-        'name'        => 'ilike',
-        'description' => 'ilike',
+        'name'        => 'like',
+        'description' => 'like',
     ];
 
     /**
